@@ -1,0 +1,111 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">DevConnectors </a>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+      <a class="nav-item nav-link active" routerLink="#">Developers</a>
+      <a class="nav-item nav-link" routerLink="/post">Post</a>
+      <a class="nav-item nav-link" routerLink="/dashboard">Dashboard</a>
+      <a class="nav-item nav-link" routerLink="/">Logout</a>
+    </div>
+  </div>
+</nav>
+
+<mat-card>
+
+
+<form name="form" #userform="ngForm"(ngSubmit)="userform.form.valid && getValues(userform)" novalidate>
+  <h1 class="heading">Create your profile</h1>
+  <p class="para">Let's get some information to make your profile stand out</p>
+  <p class="para1">* = required field</p>
+  <mat-form-field>
+    <mat-select
+    placeholder="select professional status"
+    name="profession"
+    #profession="ngModel"
+    [(ngModel)]="model.profession"
+    required
+    [ngClass]="{'is-invalid':userform.submitted && profession.invalid}">
+    <mat-option value="developer">Developer</mat-option>
+    <mat-option value="seniordev">Senior developer</mat-option>
+    <mat-option value="juniordev">Junior Developer</mat-option>
+    <mat-option value="manager">Manager</mat-option>
+   </mat-select>
+  </mat-form-field><br>
+  <mat-error *ngIf="userform.submitted && profession.invalid">
+    <mat-error *ngIf="profession.errors?.required">
+      please select the profession
+    </mat-error>
+  </mat-error>
+
+<br>
+
+<mat-form-field>
+  <input
+  type="text"
+  matInput
+  placeholder="Company"
+  required
+  [(ngModel)]="model.company"
+  name="company"
+  #company="ngModel"
+  [ngClass]="{'is-invalid':userform.submitted && company.invalid}">
+</mat-form-field>
+<br>
+
+<mat-error *ngIf="userform.submitted && company.invalid">
+<mat-error *ngIf="company.errors?.required">
+  Name should be entered
+</mat-error>
+</mat-error>
+
+<mat-form-field>
+  <input
+  type="text"
+  matInput
+  placeholder="Website"
+  required
+  [(ngModel)]="model.website"
+  name="website"
+  #website="ngModel"
+
+  [ngClass]="{'is-invalid':userform.submitted && website.invalid}">
+</mat-form-field>
+<br>
+
+<mat-error *ngIf="userform.submitted && website.invalid">
+<mat-error *ngIf="website.errors?.required">
+  website should be entered
+</mat-error>
+</mat-error>
+
+<mat-form-field>
+  <input
+  type="text"
+  matInput
+  placeholder="Skills"
+  required
+  [(ngModel)]="model.skills"
+  name="skills"
+  #skills="ngModel"
+
+  [ngClass]="{'is-invalid':userform.submitted && skills.invalid}">
+</mat-form-field>
+<br>
+
+<mat-error *ngIf="userform.submitted && skills.invalid">
+<mat-error *ngIf="skills.errors?.required">
+  skills should be entered
+</mat-error>
+</mat-error>
+<br>
+<button type="submit" mat-raised-button class="btn1">Submit</button>
+<button type="button" mat-raised-button class="btn2" (click)="getvalues1()">Go back</button>
+
+
+
+
+
+</form>
+</mat-card>

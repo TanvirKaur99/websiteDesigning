@@ -1,0 +1,122 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">DevConnectors </a>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+      <a class="nav-item nav-link active" routerLink="#">Developers</a>
+      <a class="nav-item nav-link" routerLink="/post">Post</a>
+      <a class="nav-item nav-link" routerLink="/dashboard">Dashboard</a>
+      <a class="nav-item nav-link" routerLink="/">Logout</a>
+    </div>
+  </div>
+</nav><br>
+<h1 class="heading">Add Your Education</h1>
+<p class="para"> Add any school, bootcamp, etc that you have attended</p>
+<p class="para1">* = required field</p>
+<form name="form"
+#userform="ngForm"(ngSubmit)="userform.form.valid && getValues(userform)" novalidate>
+
+<mat-form-field>
+  <input
+  type="text"
+  matInput
+  placeholder="School or Bootcamp"
+  required
+  [(ngModel)]="model.school"
+  name="school"
+  #school="ngModel"
+  [ngClass]="{'is-invalid':userform.submitted && school.invalid}">
+</mat-form-field>
+<br>
+
+<mat-error *ngIf="userform.submitted && school.invalid">
+<mat-error *ngIf="school.errors?.required">
+  Enter your school name
+</mat-error>
+</mat-error>
+<br>
+
+<mat-form-field>
+  <input
+  type="text"
+  matInput
+  placeholder="Degree Or Certificate"
+  required
+  [(ngModel)]="model.degree"
+  name="degree"
+  #degree="ngModel"
+  [ngClass]="{'is-invalid':userform.submitted && degree.invalid}">
+</mat-form-field>
+<br>
+
+<mat-error *ngIf="userform.submitted && degree.invalid">
+<mat-error *ngIf="degree.errors?.required">
+  Enter your degree
+</mat-error>
+</mat-error><br>
+
+<mat-form-field>
+  <input
+  type="text"
+  matInput
+  placeholder="Enter your field of study"
+  required
+  [(ngModel)]="model.study"
+  name="study"
+  #study="ngModel"
+  [ngClass]="{'is-invalid':userform.submitted && study.invalid}">
+</mat-form-field>
+<br>
+
+<mat-error *ngIf="userform.submitted && study.invalid">
+<mat-error *ngIf="study.errors?.required">
+  Enter your study details
+</mat-error>
+</mat-error><br>
+
+<mat-form-field>
+  <textarea
+
+  matInput
+  placeholder="description"
+  required
+  [(ngModel)]="model.description"
+  name="description"
+  #description="ngModel"
+  [ngClass]="{'is-invalid':userform.submitted && description.invalid}">
+</textarea>
+
+</mat-form-field>
+<br>
+
+<mat-error *ngIf="userform.submitted && description.invalid">
+<mat-error *ngIf="description.errors?.required">
+  Enter your descriptions
+</mat-error>
+</mat-error>
+<br>
+
+<mat-form-field appearance="fill" class="example-form-field">
+  <mat-label>From date</mat-label>
+  <input matInput [matDatepicker]="datepicker">
+  <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+  <mat-datepicker #datepicker>
+  </mat-datepicker>
+</mat-form-field>
+
+<mat-form-field appearance="fill" class="example-form-field">
+  <mat-label>To date</mat-label>
+  <input matInput [matDatepicker]="datepicker1">
+  <mat-datepicker-toggle matSuffix [for]="datepicker1"></mat-datepicker-toggle>
+  <mat-datepicker #datepicker1>
+  </mat-datepicker>
+</mat-form-field>
+<br>
+
+<button>Submit</button>
+  <button type="button" (click)="godash()">Go back</button>
+
+
+
+
+</form>

@@ -1,0 +1,22 @@
+.heading{
+  font-size: 40px;
+  font-weight: 60px;
+  margin-left: 60px;
+  color:rgb(64, 187, 224);;
+}
+.para{
+font-size: 20px;
+color: black;
+margin-left: 60px;
+}
+.para1{
+  font-size: 15px;
+  margin-left: 60px;
+  color:black
+
+}
+mat-form-field{
+  margin-left: 60px;
+  width:50%;
+}
+

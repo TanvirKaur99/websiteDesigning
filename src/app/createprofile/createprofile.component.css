@@ -1,0 +1,25 @@
+.heading{
+  color:darkcyan;
+  font-weight: 600;
+}
+.para{
+color: black;
+font: size 40px;
+}
+.para1{
+  color:black;
+  font: size 10px; ;
+}
+mat-form-field{
+  width:80%;
+}
+.btn1{
+  background-color: blanchedalmond;
+  color:black;
+
+}
+.btn2{
+  background-color: black;
+  color:blanchedalmond
+
+}

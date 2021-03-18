@@ -1,0 +1,52 @@
+.dc{
+  position:fixed;
+  top:40%;
+  left:35%;
+  margin-top: -50px;
+  margin-left: -100px;
+  font-size: 50px;
+  font-weight:bold;
+  color:aliceblue;
+}
+
+.dc1{
+position: fixed;
+top:52%;
+left:25%;
+margin-top: -50px;
+margin-left: -100px;
+font-size:22px;
+color: aliceblue;
+}
+
+.bsignup{
+position:fixed;
+top:60%;
+left:50%;
+margin-top: -50px;
+margin-left:-100px;
+background-color:white;
+width: 70px;
+color:black;
+}
+
+.blogin{
+  position: fixed;
+  top:60%;
+  left:50%;
+  margin-top: -50px;
+  margin-left: -180px;
+  background-color:ghostwhite;
+  width: 70px;
+  color: black;
+}
+
+.bg{
+background-repeat: no-repeat;
+background-size: 100% 100%;
+height: 100%;
+width:100%;
+
+}
+
+

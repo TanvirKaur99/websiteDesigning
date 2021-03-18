@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">DevConnectors </a>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+      <a class="nav-item nav-link active" routerLink="#">Developer</a>
+      <a class="nav-item nav-link" routerLink="/register">Register</a>
+      <a class="nav-item nav-link" routerLink="login">Login</a>
+
+    </div>
+  </div>
+</nav>
+<mat-card>
+<form #userform1="ngForm" name="form"(ngSubmit)="userform1.form.valid && getValues(userform1)" novalidate>
+  <h1 class="heading">Sign In</h1>
+  <p class ="para">Sign In into your account</p>
+
+<mat-form-field>
+  <input type="email"
+  placeholder="Email" class="styleofinput"
+  name="useremail"
+  #useremail="ngModel"
+  [(ngModel)]="model.useremail"
+  email
+  required
+  [ngClass]="{'is-invalid':userform1.submitted && useremail.invalid}">
+</mat-form-field>
+<br>
+
+  <mat-error *ngIf="userform1.submitted && useremail.invalid">
+    <mat-error *ngIf="useremail.errors?.required">
+      mail should be entered
+    </mat-error>
+
+    <mat-error *ngIf="useremail.errors?.email;">
+      should be in mail format
+    </mat-error>
+  </mat-error>
+
+  <mat-form-field>
+  <input type="password"
+  placeholder="Password" class="styleofinput"
+  [(ngModel)]="model.userpassword"
+        #userpassword="ngModel"
+        name="password"
+        required
+        minlength=5
+        [ngClass]="{'is-invalid':userform1.submitted && userpassword.invalid}"></mat-form-field><br>
+
+        <mat-error *ngIf="userform1.submitted && userpassword.invalid">
+          <mat-error *ngIf="userpassword.errors?.required">
+            password should be entered
+          </mat-error>
+
+          <mat-error *ngIf="userpassword.errors?.minlength">
+            password should be greater than 5 character length
+          </mat-error>
+        </mat-error>
+          <br>
+
+          <button type="submit" class="btn" onclick="getValues()">Login</button>
+
+         <p class="para2">Don't have an account?<a href="">Sign up</a> </p>
+
+
+</form>
+</mat-card>

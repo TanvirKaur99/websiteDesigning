@@ -1,0 +1,113 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">DevConnectors </a>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+      <a class="nav-item nav-link active" routerLink="#">Developer</a>
+      <a class="nav-item nav-link" routerLink="register">Register</a>
+      <a class="nav-item nav-link" routerLink="/login">Login</a>
+
+    </div>
+  </div>
+</nav>
+
+<form #userform="ngForm" name="form"(ngSubmit)="userform.form.valid && getValues(userform)" novalidate>
+<h1 class="heading">Sign up</h1>
+<p class ="para">Create your account</p>
+<input type="text"
+  placeholder="Name" class="styleofinput"
+  required
+  [(ngModel)]="model.username"
+  name="username"
+  #username="ngModel"
+  minlength="5"
+  [ngClass]="{'is-invalid':userform.submitted && username.invalid}"><br>
+
+  <mat-error *ngIf="userform.submitted && username.invalid">
+    <mat-error *ngIf="username.errors?.required">
+      Name should be entered
+    </mat-error>
+
+    <mat-error *ngIf="username.errors?.minlength">
+      Name should be greater than 5 character length
+    </mat-error>
+    </mat-error><br>
+
+
+
+
+<input type="email"
+placeholder="Email" class="styleofinput"
+name="useremail"
+#useremail="ngModel"
+[(ngModel)]="model.useremail"
+email
+required
+[ngClass]="{'is-invalid':userform.submitted && useremail.invalid}"><br>
+
+<mat-error *ngIf="userform.submitted && useremail.invalid">
+  <mat-error *ngIf="useremail.errors?.required">
+    mail should be entered
+  </mat-error>
+
+  <mat-error *ngIf="useremail.errors?.email;">
+    should be in mail format
+  </mat-error>
+  </mat-error>
+
+<br>
+
+
+
+<p class="para2">This site uses Gravatar so if you want a profile image, use a Gravatar email</p>
+
+
+<input type="password"
+placeholder="Password" class="styleofinput"
+[(ngModel)]="model.userpassword"
+      #userpassword="ngModel"
+      name="password"
+      required
+      minlength=5
+      [ngClass]="{'is-invalid':userform.submitted && userpassword.invalid}"><br>
+
+      <mat-error *ngIf="userform.submitted && userpassword.invalid">
+        <mat-error *ngIf="userpassword.errors?.required">
+          password should be entered
+        </mat-error>
+
+        <mat-error *ngIf="userpassword.errors?.minlength">
+          password should be greater than 5 character length
+        </mat-error>
+        </mat-error>
+        <br>
+
+
+
+
+<input type="password"
+placeholder="confirmpassword" class="styleofinput"
+[(ngModel)]="model.confirmpassword"
+#confirmpassword="ngModel"
+name="confirmpassword"
+required
+minlength="5"
+[ngClass]="{'is-invalid':userform.submitted && confirmpassword.invalid}"
+
+pattern={{userpassword.value}}><br><br>
+
+<mat-error *ngIf="userform.submitted && confirmpassword.invalid">
+  <mat-error *ngIf="confirmpassword.errors?.required">
+    password should be entered
+  </mat-error>
+
+  <mat-error *ngIf="confirmpassword.errors?.pattern">
+    password should be matched
+  </mat-error>
+  </mat-error>
+  <br>
+
+<button type="submit" class="btn">Register</button>
+
+<p class="para2">Already have an account?<a href="">Sign In</a> </p>
+</form>
